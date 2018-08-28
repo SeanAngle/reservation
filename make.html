@@ -33,7 +33,7 @@
             <input type="text" id="character-search" class="form-control">
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="fa fa-search"></span> View Tables </button>
+              <button type="submit" class="btn btn-primary btn-md" id="view-btn"><span class="fa fa-search"></span> View Tables </button>
 
             </div>
           </div>
@@ -45,13 +45,21 @@
           </div>
           <div class="card-body">
             <div id="stats">
-              <h3><strong>Table: </strong> <span id="table"></span></h3>        
-              <h3><strong>Name: </strong> <span id="name"></span></h3>
-              <h3><strong>Phone Number: </strong> <span id="phone-number"></span></h3>
-              <h3><strong>Email: </strong> <span id="email"></span></h3>
-              <h3><strong>Unique ID: </strong> <span id="unique-id"></span></h3>
+                    <strong>Table: </strong> <br>
+                    <span id="table"></span>
+                    <input id="table-num"></input> <br>
+                    <strong>Name: </strong><span id="table"></span><br>
+                    <input id="cust-name"></input> <br>
+                    <strong>Phone Number: </strong> <span id="table"></span><br>
+                    <input id="cust-phone"></input> <br>
+                    <strong>Email: </strong> <span id="table"></span><br>
+                    <input id="cust-email"></input> <br>
+                    <strong>Unique ID: </strong> <span id="table"></span><br>
+                    <input id="cust-id"></input>     <br>
+              
             </div>
           </div>
+         <button class="submit" id="submit-btn">Submit</button>
           <div class="card">
             <div class="card-header">
                 <h3><strong>Current Waitlist</strong></h3>
@@ -72,30 +80,26 @@
     </div>
   </div>
 
-  <!-- <script type="text/javascript">
-    $("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
-
-      // Using a RegEx Pattern to remove spaces from searchedCharacter
-      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
-
-      $.get("/api/characters/" + searchedCharacter, function(data) {
-        console.log(data);
-        if (data) {
-          $("#stats").show();
-          $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
+  <script type="text/javascript">
+    $("#submit-btn").on("click", function() {
+        event.preventDefault();
+        var newTable = {
+        customerName: $("cust-name").val().trim(),
+        phoneNumber: $("cust-phone").val().trim(),
+        customerEmail: $("cust-email").val().trim(),
+        customerID: $("cust-id").val().trim()
         }
-        else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
+      $.post("/api/tables/", newTable, function(data) {
+        console.log("make.html", data);
+        if(data){
+            alert("Adding Reservation...");
+        }
+        else{
+            alert("All tables are FULL, you have been placed on the Waitlist...");
         }
       });
     });
-  </script> -->
+  </script>
 </body>
 
 </html>
