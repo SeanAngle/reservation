@@ -13,7 +13,20 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var tables = [];
+var tables = [
+    {
+        customerName: "John Kim",
+        phoneNumber: "6164468366",
+        customerEmail: "blah@gmail.com",
+        customerID: "23049234"
+    },
+    {
+        customerName: "John Kim",
+        phoneNumber: "6164468366",
+        customerEmail: "blah@gmail.com",
+        customerID: "23049234"
+    }
+];
 var waitlist = [];
 
 app.get("/", function(req, res) {
