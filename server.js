@@ -51,7 +51,6 @@ app.get("/api/waitlist", function(req, res) {
 
 app.post("/api/tables", function(req, res){
     var newTable = req.body;
-    newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
     console.log(newTable);
     if(tables.length < 5){
         tables.push(newTable);
