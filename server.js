@@ -53,16 +53,22 @@ app.get("/api/waitlist", function(req, res) {
 
 app.post("/api/tables", function(req, res){
     var newTable = req.body;
-    newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
     console.log(newTable);
-    tables.push(newTable);
-    res.json(newTable);
+    if(tables.length < 5){
+        tables.push(newTable);
+        return true;
+    }else{
+        waitList.push(newTable);
+        return false;
+    }
+    // tables.push(newTable);
+    // res.json(newTable);
 })
 
-app.post("/api/waitlist", function(req, res){
-    var newWaitlist = req.body;
-    newWaitlist.routeName = newWaitlist.name.replace(/\s+/g, "").toLowerCase();
-    console.log(newWaitlist);
-    waitlist.push(newWaitlist);
-    res.json(newWaitlist);
-})
+// app.post("/api/waitlist", function(req, res){
+//     var newWaitlist = req.body;
+//     newWaitlist.routeName = newWaitlist.name.replace(/\s+/g, "").toLowerCase();
+//     console.log(newWaitlist);
+//     waitlist.push(newWaitlist);
+//     res.json(newWaitlist);
+// })
