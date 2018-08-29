@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/SeanAngle/reservation/issues"
   },
-  "homepage": "https://github.com/SeanAngle/reservation#readme"
+  "homepage": "https://github.com/SeanAngle/reservation#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
