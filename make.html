@@ -19,7 +19,7 @@
       <h1>Reservation Express</h1>
       <h3>The best way to reserve your table!</h3>
       <hr>
-      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> View Tables </button></a>
+      <a href="/add"><button class="btn btn-danger btn-lg" id="submit-btn"><span class="fa fa-plus"></span> View Tables </button></a>
     </div>
     <div class="row">
 
@@ -33,7 +33,7 @@
             <input type="text" id="character-search" class="form-control">
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="view-btn"><span class="fa fa-search"></span> View Tables </button>
+
 
             </div>
           </div>
@@ -84,10 +84,10 @@
     $("#submit-btn").on("click", function() {
         event.preventDefault();
         var newTable = {
-        customerName: $("cust-name").val().trim(),
-        phoneNumber: $("cust-phone").val().trim(),
-        customerEmail: $("cust-email").val().trim(),
-        customerID: $("cust-id").val().trim()
+        customerName: $("#cust-name").val().trim(),
+        phoneNumber: $("#cust-phone").val().trim(),
+        customerEmail: $("#cust-email").val().trim(),
+        customerID: $("#cust-id").val().trim()
         }
       $.post("/api/tables/", newTable, function(data) {
         console.log("make.html", data);
