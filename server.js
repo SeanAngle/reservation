@@ -65,10 +65,8 @@ app.post("/api/tables", function(req, res){
     // res.json(newTable);
 })
 
-// app.post("/api/waitlist", function(req, res){
-//     var newWaitlist = req.body;
-//     newWaitlist.routeName = newWaitlist.name.replace(/\s+/g, "").toLowerCase();
-//     console.log(newWaitlist);
-//     waitlist.push(newWaitlist);
-//     res.json(newWaitlist);
-// })
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+});
